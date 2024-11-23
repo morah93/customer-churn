@@ -6,23 +6,11 @@ import streamlit as st
 from openai import OpenAI
 import utils as ut
 
-# //----------------------------------------------
-# app.py
-from fastapi import FastAPI
-import streamlit.web.cli as stcli
-import subprocess
 
-app = FastAPI()
-
-@app.get("/")
-async def root():
-    # Run Streamlit app as a subprocess
-    subprocess.Popen(["streamlit", "run", "your_streamlit_app.py", "--server.port", "8501"])
-    return {"message": "Streamlit app is running"}
-
-# You can add additional FastAPI endpoints if needed
-# -----------------------------------------------------
-
+if 'GROQ_API_KEY' in os.environ:
+  api_key = os.environ['GROQ_API_KEY']
+else:
+  api_key = st.secrets['GROQ_API_KEY']
 
 
 # from .utils import utils as ut
