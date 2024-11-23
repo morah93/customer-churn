@@ -86,4 +86,4 @@ def create_model_probability_chart(probabilities):
                            xaxis=dict(tickformat='0.0%', range=[0,1]),
                            height=400,
                            margin=dict(l=20, r=20, t=50, b=20))
-  return fig
+  # return fig
