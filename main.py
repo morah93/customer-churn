@@ -7,7 +7,22 @@ from openai import OpenAI
 import utils as ut
 
 
+if 'GROQ_API_KEY' in os.environ:
+  api_key = os.environ['GROQ_API_KEY']
+else:
+  api_key = st.secrets['GROQ_API_KEY']
 
+
+# from .utils import utils as ut
+
+client = OpenAI(
+  base_url="https://api.groq.com/openai/v1",
+  api_key=os.getenv('GROQ_API_KEY')
+)
+
+def load_model(filename):
+  with open(filename, 'rb') as file:
+    return pickle.load(file)
 
 xgboost_model = load_model('xgb_model.pkl')
 
