@@ -7,8 +7,7 @@ from openai import OpenAI
 import utils as ut
 
 
-if 'GROQ_API_KEY' in os.environ:
-  api_key = os.environ['GROQ_API_KEY']
+
 else:
   api_key = st.secrets['GROQ_API_KEY']
 
